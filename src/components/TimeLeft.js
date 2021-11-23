@@ -15,8 +15,8 @@ const TimeLeft = ({breakLength, sessionLength}) => {
     const isStarted = intervalId !== null;
     const handleStartStopClic = () => {
         if(isStarted){
-            clearInterval(intervalId)
-            setIntervalId(null)
+            clearInterval(intervalId);
+            setIntervalId(null);
         }else {
             const newInterwalId = setInterval(() => {
             setTimeLeft(prevTimeLeft =>{
@@ -45,7 +45,9 @@ const TimeLeft = ({breakLength, sessionLength}) => {
     const formattedTimeLeft = moment.duration(timeLeft, 's').format('mm:ss', {trim:false});
     return (
         <div>
-            {formattedTimeLeft}
+            
+            <p id="timer-label">{currentSessionType}</p>
+            <p id="time-left">{formattedTimeLeft}</p>
             <button onClick={handleStartStopClic}>{isStarted ? "stop" : "start"}</button>
             
         </div>
